@@ -1,30 +1,29 @@
 import express from 'express';
-import path from 'path';
 const app = express();
 const port = 3000;
-const __dirname = path.resolve(path.dirname(''));
 
+app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.json());
 
 app.get('/', function (_req, res) {
-    res.sendFile(path.join(__dirname, '/home.html'));
+    res.render('home');
 });
 
 app.get('/universe', function (_req, res) {
-    res.sendFile(path.join(__dirname, '/univers.html'));
+    res.render('universe');
 });
 
 app.get('/planet', function (_req, res) {
-    res.sendFile(path.join(__dirname, '/planeta.html'));
+    res.render('planet');
 });
 
 app.get('/random', function (_req, res) {
-    res.sendFile(path.join(__dirname, '/planeta.html'));
+    res.render('planet');
 });
 
 app.get('/contribute', function (_req, res) {
-    res.sendFile(path.join(__dirname, '/contribute.html'));
+    res.render('contribute');
 });
 
 app.post('/search', function (req, res) {
