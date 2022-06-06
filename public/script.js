@@ -18,3 +18,11 @@ function searchForPlanet() {
         });
     searchTxt.value = '';
 }
+
+const activePage = window.location.pathname;
+const navLinks = document.querySelectorAll('.nav-link');
+navLinks.forEach((element) => {
+    if (element.pathname == activePage) {
+        element.classList.add('active');
+    }
+});
