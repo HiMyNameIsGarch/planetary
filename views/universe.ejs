@@ -15,59 +15,37 @@
 <body>
     <%- include('partials/header') %>
     <main>
-        <div class="position-relative overflow-hidden p-3 p-md-3 m-md-1 text-center bg-light" id="main_canvas">
-            <div class="col-md-5 p-lg-5 mx-auto my-5">
-                <h1 class="display-4 fw-normal iwantwhite">Universe!</h1>
-                <p class="lead fw-normal iwantwhite">What are you about to see and discover will break you mind appart, I promise you!</p>
-            </div>
-        </div>
+        <%- include('partials/headTitle', {
+            title: "Universe!", 
+            content: "What are you about to see and discover will break you mind appart, I promise you!"
+        }) %>
         <div class="album py-5 bg-light">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
-                    <div class="col">
-                        <div class="card shadow-sm text-center">
-                            <a href="/planet">
-                                <img src="https://w.wallhaven.cc/full/eo/wallhaven-eo3m7k.jpg" class="card-img-top card-img-cover" alt="...">
-                            </a>
-                            <div class="card-body">
-                                 <h3 class="card-title">VENUS</h3>
-                                 <p class="card-text">asdasds asdsdfgdfgdsfgsdfgdsgsafdsdfsadfsdgdfgdfgdfgsd sd gdsfg df gdfg dsfg sdfg dfg dsfg dsfg dsfg dsfg dsfg dsfg</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm text-center">
-                            <a href="/planet">
-                                <img src="https://w.wallhaven.cc/full/eo/wallhaven-eo3m7k.jpg" class="card-img-top card-img-cover" alt="...">
-                            </a>
-                            <div class="card-body">
-                                 <h3 class="card-title">VENUS</h3>
-                                 <p class="card-text">asdasds asdsdfgdfgdsfgsdfgdsgsafdsdfsadfsdgdfgdfgdfgsd sd gdsfg df gdfg dsfg sdfg dfg dsfg dsfg dsfg dsfg dsfg dsfg</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm text-center">
-                            <a href="/planet">
-                                <img src="https://w.wallhaven.cc/full/eo/wallhaven-eo3m7k.jpg" class="card-img-top card-img-cover" alt="...">
-                            </a>
-                            <div class="card-body">
-                                 <h3 class="card-title">VENUS</h3>
-                                 <p class="card-text">asdasds asdsdfgdfgdsfgsdfgdsgsafdsdfsadfsdgdfgdfgdfgsd sd gdsfg df gdfg dsfg sdfg dfg dsfg dsfg dsfg dsfg dsfg dsfg</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow-sm text-center">
-                            <a href="/planet">
-                                <img src="https://w.wallhaven.cc/full/eo/wallhaven-eo3m7k.jpg" class="card-img-top card-img-cover" alt="...">
-                            </a>
-                            <div class="card-body">
-                                 <h3 class="card-title">VENUS</h3>
-                                 <p class="card-text">asdasds asdsdfgdfgdsfgsdfgdsgsafdsdfsadfsdgdfgdfgdfgsd sd gdsfg df gdfg dsfg sdfg dfg dsfg dsfg dsfg dsfg dsfg dsfg</p>
-                            </div>
-                        </div>
-                    </div>
+                    <%- include('partials/planetCard', { link: "/planet",
+                     img: "https://w.wallhaven.cc/full/eo/wallhaven-eo3m7k.jpg",
+                     alt: "my planet",
+                     title: "my planet",
+                     content: "this is some kind of textthis is some kind of textthis is some kind of textthis is some kind of textthis is some kind of text",
+                    }) %>
+                    <%- include('partials/planetCard', { link: "/planet",
+                     img: "https://w.wallhaven.cc/full/eo/wallhaven-eo3m7k.jpg",
+                     alt: "my planet",
+                     title: "my planet",
+                     content: "this is some kind of textthis is some kind of textthis is some kind of textthis is some kind of textthis is some kind of text",
+                    }) %>
+                    <%- include('partials/planetCard', { link: "/planet",
+                     img: "https://w.wallhaven.cc/full/eo/wallhaven-eo3m7k.jpg",
+                     alt: "my planet",
+                     title: "my planet",
+                     content: "this is some kind of textthis is some kind of textthis is some kind of textthis is some kind of textthis is some kind of text",
+                    }) %>
+                    <%- include('partials/planetCard', { link: "/planet",
+                     img: "https://w.wallhaven.cc/full/eo/wallhaven-eo3m7k.jpg",
+                     alt: "my planet",
+                     title: "my planet",
+                     content: "this is some kind of textthis is some kind of textthis is some kind of textthis is some kind of textthis is some kind of text",
+                    }) %>
                 </div>
             </div>
         </div>

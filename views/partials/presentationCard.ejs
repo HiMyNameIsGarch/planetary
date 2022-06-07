@@ -1,0 +1,20 @@
+<div class="container col-xxl-12 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+            <% if(isReversed) { %>
+                <h1 class="display-5 fw-bold lh-1 mb-3"><%= title %></h1>
+                <p class="lead"><%= content %></p>
+            <% } else { %>
+                <img src="<%= img %>" class="d-block mx-lg-auto img-fluid rounded-4" alt="Bootstrap Themes" loading="lazy" width="800" height="500">
+            <% } %>
+        </div>
+        <div class="col-lg-6">
+            <% if(isReversed) { %>
+                <img src="<%= img %>" class="d-block mx-lg-auto img-fluid rounded-4" alt="Bootstrap Themes" loading="lazy" width="800" height="500">
+            <% } else { %>
+                <h1 class="display-5 fw-bold lh-1 mb-3"><%= title %></h1>
+                <p class="lead"><%= content %></p>
+            <% } %>
+        </div>
+    </div>
+</div>

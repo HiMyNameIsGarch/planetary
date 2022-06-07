@@ -16,33 +16,26 @@
 <body>
     <%- include('partials/header') %>
     <main>
-        <div class="position-relative overflow-hidden p-3 p-md-3 m-md-1 text-center bg-light" id="main_canvas">
-            <div class="col-md-5 p-lg-5 mx-auto my-5">
-                <h1 class="display-4 fw-normal iwantwhite">Everybody wants to contribute!</h1>
-                <p class="lead fw-normal iwantwhite">Well I'm here to help you out, we need some kind of informations before...</p>
-            </div>
-        </div>
+        <%- include('partials/headTitle', {
+            title: "Everybody wants to contribute!", 
+            content: "Well I'm here to help you out, we need some kind of informations before..."
+        }) %>
         <div class="container">
             <div class="row g-5">
                 <div class="col-md-12 col-lg-12">
                     <h2 class="mb-3 paddinme">Details about you</h2>
                     <form class="needs-validation" id="contributeForm" onsubmit="sendForm(); return false;">
                         <div class="row g-3">
-                            <div class="col-sm-6">
-                                <label for="firstName" class="form-label">First name</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                                <div class="invalid-feedback">
-                                    Valid first name is required.
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <label for="lastName" class="form-label">Last name</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                                <div class="invalid-feedback">
-                                    Valid last name is required.
-                                </div>
-                            </div>
+                            <%- include('partials/bigInputText', {
+                             id: "firstName",
+                             title: "First name",
+                             wrongMsg: "Valid first name is required."
+                            }) %>
+                            <%- include('partials/bigInputText', {
+                             id: "lastName",
+                             title: "Last name",
+                             wrongMsg: "Valid last name is required."
+                            }) %>
 
                             <div class="col-12">
                                 <label for="username" class="form-label">Username</label>
@@ -112,68 +105,44 @@
                             <h4 class="mb-3">Nerd data: </h4>
 
                             <div class="row g-1">
-                                <div class="col-4">
-                                    <label for="distanceToEarth" class="form-label">Distance to Earth</label>
-                                    <div class="input-group has-validation">
-                                        <span class="input-group-text">Km</span>
-                                        <input type="text" class="form-control" id="distanceToEarth" placeholder="Username" required>
-                                        <div class="invalid-feedback">
-                                            The distance is important Keren!
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <label for="mass" class="form-label">Mass</label>
-                                    <div class="input-group has-validation">
-                                        <span class="input-group-text">Kg</span>
-                                        <input type="text" class="form-control" id="mass" placeholder="Username" required>
-                                        <div class="invalid-feedback">
-                                            Mass is important Keren!
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <label for="volume" class="form-label">Volume</label>
-                                    <div class="input-group has-validation">
-                                        <span class="input-group-text">V</span>
-                                        <input type="text" class="form-control" id="volume" placeholder="Username" required>
-                                        <div class="invalid-feedback">
-                                            Ah Volume, this is also important...
-                                        </div>
-                                    </div>
-                                </div>
+                                <%- include('partials/inputText', {
+                                 id: "distanceToEarth",
+                                 title: "Distance to Earth",
+                                 label: "Km",
+                                 wrongMsg: "The distance is important Keren!"
+                                }) %>
+                                <%- include('partials/inputText', {
+                                 id: "mass",
+                                 title: "Mass",
+                                 label: "Kg",
+                                 wrongMsg: "Mass is important Keren!"
+                                }) %>
+                                <%- include('partials/inputText', {
+                                 id: "volume",
+                                 title: "Volume",
+                                 label: "V",
+                                 wrongMsg: "Ah Volumne, this is also important..."
+                                }) %>
                             </div>
                             <div class="row g-3">
-                                <div class="col-4">
-                                    <label for="gravity" class="form-label">Gravity</label>
-                                    <div class="input-group has-validation">
-                                        <span class="input-group-text">m/s2</span>
-                                        <input type="text" class="form-control" id="gravity" placeholder="Username" required>
-                                        <div class="invalid-feedback">
-                                            Grativation, one day will pull you away!
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <label for="acceleration" class="form-label">Acceleration</label>
-                                    <div class="input-group has-validation">
-                                        <span class="input-group-text">Km/h</span>
-                                        <input type="text" class="form-control" id="acceleration" placeholder="Username" required>
-                                        <div class="invalid-feedback">
-                                            Acceleration, the thing you get bigger in order to impress girls!
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <label for="density" class="form-label">Density</label>
-                                    <div class="input-group has-validation">
-                                        <span class="input-group-text">Kg/m3</span>
-                                        <input type="text" class="form-control" id="density" placeholder="Username" required>
-                                        <div class="invalid-feedback">
-                                            Karen, I dare you!
-                                        </div>
-                                    </div>
-                                </div>
+                                <%- include('partials/inputText', {
+                                 id: "gravity",
+                                 title: "Gravity",
+                                 label: "m/s^2",
+                                 wrongMsg: "Grativation, one day will pull you away!"
+                                }) %>
+                                <%- include('partials/inputText', {
+                                 id: "acceleration",
+                                 title: "Acceleration",
+                                 label: "Km/h",
+                                 wrongMsg: "Acceleration, the thing you increase in order to impress girls!"
+                                }) %>
+                                <%- include('partials/inputText', {
+                                 id: "density",
+                                 title: "Density",
+                                 label: "Kg/m^3",
+                                 wrongMsg: "Karen, I dare you!"
+                                }) %>
                             </div>
 
                             <hr class="my-2">

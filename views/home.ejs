@@ -32,39 +32,24 @@
                 </div>
             </div>
         </div>
-        <div class="container col-xxl-12 py-5">
-            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-                <div class="col-10 col-sm-8 col-lg-6">
-                    <img src="https://w.wallhaven.cc/full/4x/wallhaven-4x6dmv.jpg" class="d-block mx-lg-auto img-fluid rounded-4" alt="Bootstrap Themes" loading="lazy" width="1000" height="500">
-                </div>
-                <div class="col-lg-6">
-                    <h1 class="display-5 fw-bold lh-1 mb-3">Planets are awesome ! What you don't like planets... shame on you!</h1>
-                    <p class="lead ">First of all, you will read some useless text in order to punish you that you don't like planets... But that will change soon, after you visit this site, you will be astonished by the beauty of them, so what are you waiting for?</p>
-                </div>
-            </div>
-        </div>
-        <div class="container col-xxl-12 py-5">
-            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-                <div class="col-lg-6">
-                    <h1 class="display-5 fw-bold lh-1 mb-3">What are planets anyway?</h1>
-                    <p class="lead">Planets are just matter, well not that simple... are a big piece of matter like rock, gas or something. Are so big that have their one gravity </p>
-                </div>
-                <div class="col-10 col-sm-8 col-lg-6">
-                    <img src="https://w.wallhaven.cc/full/zm/wallhaven-zmgqxy.jpg" class="d-block mx-lg-auto img-fluid rounded-4" alt="Bootstrap Themes" loading="lazy" width="800" height="500">
-                </div>
-            </div>
-        </div>
-        <div class="container col-xxl-12 py-5">
-            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-                <div class="col-10 col-sm-8 col-lg-6">
-                    <img src="https://www.farmersalmanac.com/wp-content/uploads/2020/11/Astronomy-Night-Sky-Stars-Looking-Up-i533196725.jpeg" class="d-block mx-lg-auto img-fluid rounded-4" alt="Bootstrap Themes" loading="lazy" width="1000" height="500">
-                </div>
-                <div class="col-lg-6">
-                    <h1 class="display-5 fw-bold lh-1 mb-3">But you can contribute too!</h1>
-                    <p class="lead">If you are an Astrophysicist and want to contribute to this beautiful website, please refer to this <a href="contribute"> link </a> in order to add another planet. If you're not I'm sorry but what can you do is to admire the beauty of the planets discovered by others, Enjoy!</p>
-                </div>
-            </div>
-        </div>
+        <%- include('partials/presentationCard', {
+            isReversed: false,
+            title: "Planets are awesome ! What you don't like planets... shame on you!",
+            content: "First of all, you will read some useless text in order to punish you that you don't like planets... But that will change soon, after you visit this site, you will be astonished by the beauty of them, so what are you waiting for?",
+            img: "https://w.wallhaven.cc/full/4x/wallhaven-4x6dmv.jpg"
+        }) %>
+        <%- include('partials/presentationCard', {
+            isReversed: true,
+            title: "What are planets anyway?",
+            content: "Planets are just matter, well not that simple... are a big piece of matter like rock, gas or something. Are so big that have their one gravity",
+            img: "https://w.wallhaven.cc/full/zm/wallhaven-zmgqxy.jpg"
+        }) %>
+        <%- include('partials/presentationCard', {
+            isReversed: false,
+            title: "But you can contribute too!",
+            content: "If you are an Astrophysicist and want to contribute to this beautiful website, please refer to this <a href=\"contribute\"> link <\/a> in order to add another planet. If you're not I'm sorry but what can you do is to admire the beauty of the planets discovered by others, Enjoy!",
+            img: "https://www.farmersalmanac.com/wp-content/uploads/2020/11/Astronomy-Night-Sky-Stars-Looking-Up-i533196725.jpeg"
+        }) %>
     </main>
     <%- include('partials/footer') %>
 </body>

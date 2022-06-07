@@ -7,18 +7,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/universe">Universe</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/random">Random</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contribute">Contribute</a>
-                    </li>
+                    <%- include('navItem', {link: "/", text: "Home"}) %>
+                    <%- include('navItem', {link: "/universe", text: "Universe"}) %>
+                    <%- include('navItem', {link: "/random", text: "Random"}) %>
+                    <%- include('navItem', {link: "/contribute", text: "Contribute"}) %>
                 </ul>
                 <form class="d-flex" role="search" onsubmit="searchForPlanet(); return false;">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchText">
