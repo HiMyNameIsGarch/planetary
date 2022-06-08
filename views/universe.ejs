@@ -11,11 +11,11 @@
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
                     <% planets.forEach(function(planet){ %>
                         <%- include('partials/planetCard', { 
-                            link: planet.link,
-                            img: planet.img,
-                            alt: planet.altImg,
-                            title: planet.title,
-                            content: planet.content
+                            link: "/planet/" + planet._id,
+                            img: planet.image,
+                            alt: planet.name,
+                            title: planet.name,
+                            content: planet.description
                         }); %>
                     <% }); %>
                 </div>

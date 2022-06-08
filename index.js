@@ -1,5 +1,9 @@
 import express from 'express';
+import mongoose from 'mongoose';
+
 import PlanetaryEntity from './planetary.js';
+
+const { isValidObjectId } = mongoose;
 const app = express();
 const port = 3000;
 
@@ -13,39 +17,47 @@ app.get('/', function (_req, res) {
     res.render('home');
 });
 
-app.get('/universe', function (_req, res) {
-    const planets = db.getAll();
+app.get('/universe', async (_req, res) => {
+    const planets = await db.getAll();
     res.render('universe', { planets: planets });
 });
 
-app.get('/planet', function (_req, res) {
-    const planet = db.get(1);
+app.get('/planet/:id', async function (req, res) {
+    const id = req.params.id;
+    if (!isValidObjectId(id)) return res.sendStatus(404);
+
+    const planet = await db.get(id);
     res.render('planet', { planet: planet });
 });
 
-app.get('/random', function (_req, res) {
-    const planet = db.getRandom();
-    res.render('planet', { planet: planet });
+app.get('/random', async (_req, res) => {
+    const random = await db.getRandom();
+    res.render('planet', { planet: random });
 });
 
-app.get('/contribute', function (_req, res) {
+app.get('/contribute', (_req, res) => {
     res.render('contribute');
 });
 
+app.get('/notfound', (_req, res) => {
+    res.render('notfound');
+});
+
 // post data
-app.post('/search', function (req, res) {
-    const planet = db.search(req.body.sq);
+app.post('/search', async (req, res) => {
+    const planet = await db.search(req.body.sq);
     if (planet !== null) {
-        return planet;
+        return res.redirect('/planet/' + planet._id);
     }
     res.sendStatus(404);
 });
-app.post('/contribute', function (req, res) {
-    const response = db.add(req.body);
-    if (response) {
-        res.status(200).send('Planet added!');
+
+app.post('/contribute', async (req, res) => {
+    const response = await db.add(req.body);
+    if (response !== null) {
+        return res.status(300).redirect('/planet/' + response);
     } else {
-        res.status(403).send('Cannot add planet!');
+        return res.status(403).send('Cannot add planet!');
     }
 });
 

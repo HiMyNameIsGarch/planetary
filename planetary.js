@@ -1,11 +1,12 @@
 import mongoose from 'mongoose';
+import Planet from './models/planet.js';
 
 class PlanetaryEntity {
     #db = null;
 
     async connect() {
         const mongoDB =
-            'mongodb+srv://marcelAdmin:hOCkNs3iaoARg1HS@cluster0.wjwwl.mongodb.net/?retryWrites=true&w=majority';
+            'mongodb+srv://marcelAdmin:hOCkNs3iaoARg1HS@cluster0.wjwwl.mongodb.net/planetary?retryWrites=true&w=majority';
 
         await mongoose.connect(mongoDB, {
             useNewUrlParser: true,
@@ -16,63 +17,37 @@ class PlanetaryEntity {
         this.#db = mongoose.connection;
     }
 
-    getAll() {
-        return [
-            {
-                link: '/planet',
-                img: 'https://w.wallhaven.cc/full/eo/wallhaven-eo3m7k.jpg',
-                alt: 'my planet',
-                title: 'my planet',
-                content:
-                    'this is some kind of textthis is some kind of textthis is some kind of textthis is some kind of textthis is some kind of text',
-            },
-            {
-                link: '/planet',
-                img: 'https://w.wallhaven.cc/full/eo/wallhaven-eo3m7k.jpg',
-                alt: 'my planet',
-                title: 'my planet',
-                content:
-                    'this is some kind of textthis is some kind of textthis is some kind of textthis is some kind of textthis is some kind of text',
-            },
-        ];
-    }
-
-    getRandom() {
-        const all = this.get(1);
-        // const randomPlanet = all[Math.floor(Math.random() * all.length)];
+    async getAll() {
+        const all = await Planet.find();
         return all;
     }
 
-    get(id) {
-        return {
-            id: id,
-            img: 'https://w.wallhaven.cc/full/eo/wallhaven-eo3m7k.jpg',
-            name: 'Earth',
-            description: 'this is the description',
-            color: 'color',
-            type: 'type',
-            material: 'material',
-            solarSystem: 'solar system',
-            canSustainEarthLife: 'yes',
-            distanceToEarth: 'distance',
-            mass: 'mass',
-            gravity: 'gravity',
-            acceleration: 'acc',
-            density: 'density',
-            discoveredOn: 'on',
-            discoveredBy: 'by',
-            facts: 'facts',
-        };
+    async getRandom() {
+        const all = await this.getAll();
+        const randomPlanet = all[Math.floor(Math.random() * all.length)];
+        return randomPlanet;
     }
 
-    search(sq) {
-        console.log('sq: ' + sq);
-        return this.get(1);
+    async get(id) {
+        const pl = await Planet.findById(id);
+        return pl;
     }
 
-    add(planet) {
-        console.log('planet: ' + planet);
-        return true;
+    async search(sq) {
+        const planet = await Planet.findOne({ name: sq });
+        return planet;
+    }
+
+    async add(planet) {
+        const newPlanet = new Planet(planet);
+        try {
+            await newPlanet.save();
+            return newPlanet._id;
+        } catch (err) {
+            console.log('Cannot add planet');
+            console.log(err);
+            return false;
+        }
     }
 }
 export default PlanetaryEntity;

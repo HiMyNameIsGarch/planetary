@@ -3,12 +3,14 @@
     background-image: url("https://w.wallhaven.cc/full/eo/wallhaven-eo3m7k.jpg");
     background-attachment: fixed;
     background-position: center;
+    background-size: cover;
 }
 
 .backgroundImg {
     margin: 0 !important;
     background-attachment: fixed;
     background-position: center;
+    background-size: cover;
 }
 
 .iwantwhite {

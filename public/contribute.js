@@ -1,4 +1,10 @@
-function sendForm() {
+const contributeForm = document.querySelector('#contributeForm');
+contributeForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    send();
+});
+
+function send() {
     var data = {
         firstName: getFormData('firstName'),
         lastName: getFormData('lastName'),
@@ -23,6 +29,7 @@ function sendForm() {
     };
     fetch('http://localhost:3000/contribute', {
         method: 'post',
+        redirect: 'follow',
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
@@ -30,7 +37,9 @@ function sendForm() {
         body: JSON.stringify(data),
     })
         .then((response) => {
-            console.log(response);
+            if (response.redirected) {
+                window.location.href = response.url;
+            }
         })
         .catch((err) => {
             console.log(err);

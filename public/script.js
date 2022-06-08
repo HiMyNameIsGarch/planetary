@@ -1,7 +1,14 @@
-function searchForPlanet() {
+const searchForm = document.querySelector('#searchForm');
+searchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    search();
+});
+
+function search() {
     const searchTxt = document.querySelector('#searchText');
     fetch('http://localhost:3000/search', {
         method: 'post',
+        redirect: 'follow',
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
@@ -11,7 +18,9 @@ function searchForPlanet() {
         }),
     })
         .then((response) => {
-            console.log(response);
+            if (response.redirected) {
+                window.location.href = response.url;
+            }
         })
         .catch((err) => {
             console.log(err);

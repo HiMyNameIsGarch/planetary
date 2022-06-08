@@ -13,9 +13,9 @@
                         <%- include('navItem', {link: "/random", text: "Random"}) %>
                         <%- include('navItem', {link: "/contribute", text: "Contribute"}) %>
                     </ul>
-                    <form class="d-flex" role="search" onsubmit="searchForPlanet(); return false;">
+                    <form class="d-flex" role="search" id="searchForm">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchText">
-                        <button class="btn btn-outline-warning" type="submit" onclick="searchForPlanet()">Search</button>
+                        <button class="btn btn-outline-warning" type="submit">Search</button>
                     </form>
                 </div>
             </div>
