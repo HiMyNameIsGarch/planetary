@@ -10,12 +10,57 @@ app.get('/', function (_req, res) {
     res.render('home');
 });
 
+function getDbPlanets() {
+    return [
+        {
+            link: '/planet',
+            img: 'https://w.wallhaven.cc/full/eo/wallhaven-eo3m7k.jpg',
+            alt: 'my planet',
+            title: 'my planet',
+            content:
+                'this is some kind of textthis is some kind of textthis is some kind of textthis is some kind of textthis is some kind of text',
+        },
+        {
+            link: '/planet',
+            img: 'https://w.wallhaven.cc/full/eo/wallhaven-eo3m7k.jpg',
+            alt: 'my planet',
+            title: 'my planet',
+            content:
+                'this is some kind of textthis is some kind of textthis is some kind of textthis is some kind of textthis is some kind of text',
+        },
+    ];
+}
+
 app.get('/universe', function (_req, res) {
-    res.render('universe');
+    const planets = getDbPlanets();
+    res.render('universe', { planets: planets });
 });
 
+function getPlanet(id) {
+    return {
+        id: id,
+        img: 'https://w.wallhaven.cc/full/eo/wallhaven-eo3m7k.jpg',
+        name: 'Earth',
+        description: 'this is the description',
+        color: 'color',
+        type: 'type',
+        material: 'material',
+        solarSystem: 'solar system',
+        canSustainEarthLife: 'yes',
+        distanceToEarth: 'distance',
+        mass: 'mass',
+        gravity: 'gravity',
+        acceleration: 'acc',
+        density: 'density',
+        discoveredOn: 'on',
+        discoveredBy: 'by',
+        facts: 'facts',
+    };
+}
+
 app.get('/planet', function (_req, res) {
-    res.render('planet');
+    const planet = getPlanet(1);
+    res.render('planet', { planet: planet });
 });
 
 app.get('/random', function (_req, res) {

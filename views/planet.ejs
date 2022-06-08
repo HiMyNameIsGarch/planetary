@@ -2,18 +2,38 @@
 
 <%- include('partials/header') %>
     <main>
-        <div class="position-relative overflow-hidden p-3 p-md-3 m-md-1 text-center bg-light" id="main_canvas">
+        <div class="position-relative overflow-hidden p-3 p-md-3 m-md-1 text-center bg-light backgroundImg" style="background-image: url(<%= planet.img %>)">
             <div class="col-md-5 p-lg-5 mx-auto mp-12">
-                <h1 class="display-4 fw-normal iwantwhite">Earth</h1>
-                <p class="lead fw-normal iwantwhite">Home sweet home, isn't it?</p>
+                <h1 class="display-4 fw-normal iwantwhite"><%= planet.name %></h1>
+                <p class="lead fw-normal iwantwhite"><%= planet.description %></p>
             </div>
         </div>
         <div class="container p-3 p-md-3">
             <div class="row row-cols-1 row-cols-md-2 g-4">
-                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg", altImg: "color", title: "Color"} ) %>
-                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg", altImg: "solar system", title: "Solar System"} ) %>
-                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg", altImg: "mass", title: "Mass"} ) %>
-                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg", altImg: "type", title: "Type"} ) %>
+                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
+                    title: "Color: " + planet.color } ) %>
+                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
+                    title: "Type: " + planet.type } ) %>
+                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
+                    title: "Material: " + planet.material } ) %>
+                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
+                    title: "Solar System: " + planet.solarSystem } ) %>
+                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
+                    title: "Can a human live there? " + planet.canSustainEarthLife } ) %>
+                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
+                    title: "Distance To Earth: " + planet.distanceToEarth } ) %>
+                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
+                    title: "Mass: " + planet.mass } ) %>
+                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
+                    title: "Gravity: " + planet.gravity } ) %>
+                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
+                    title: "Acceleration: " + planet.acceleration } ) %>
+                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
+                    title: "Density: " + planet.density } ) %>
+                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
+                    title: "Discovered On: " + planet.discoveredOn } ) %>
+                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
+                    title: "Discovered By: " + planet.discoveredBy } ) %>
             </div>
         </div>
     </main>

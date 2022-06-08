@@ -55,6 +55,18 @@
                                 </div>
                             </div>
 
+                            <%- include('partials/bigInputText', {
+                             id: "planetName",
+                             title: "Name",
+                             wrongMsg: "Karen, enter the name of the planet..."
+                            }) %>
+
+                            <%- include('partials/bigInputText', {
+                             id: "planetDescription",
+                             title: "Description",
+                             wrongMsg: "The description is important Keren..."
+                            }) %>
+
                             <div class="row">
                                 <div class="col-md-4 mb-3">
                                     <label for="planetType">Type</label>
@@ -62,7 +74,7 @@
                                         <option value="superEarth">Super-Earth</option>
                                         <option value="giantPlanet">Giant planet</option>
                                         <option value="icePlanet">Ice planet</option>
-                                        <option value="mesoplanet">Mesoplanet</option>
+                                        <option value="mesoPlanet">Mesoplanet</option>
                                         <option value="miniNeptune">Mini-Neptune</option>
                                         <option value="planetar">Planetar</option>
                                     </select>
@@ -135,6 +147,14 @@
 
                             <hr class="my-2">
                             <h4 class="mb-3">Discovery data: </h4>
+
+                            <div class="col-12">
+                                <label for="imgLink" class="form-label">Image link</label>
+                                <input type="link" class="form-control" id="imgLink" placeholder="https://img.com/img" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid website
+                                </div>
+                            </div>
 
                             <div class="row g-1">
                                 <div class="col-6">

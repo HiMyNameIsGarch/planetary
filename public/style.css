@@ -5,6 +5,12 @@
     background-position: center;
 }
 
+.backgroundImg {
+    margin: 0 !important;
+    background-attachment: fixed;
+    background-position: center;
+}
+
 .iwantwhite {
     color: #ccc;
 }

@@ -9,30 +9,15 @@
         <div class="album py-5 bg-light">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
-                    <%- include('partials/planetCard', { link: "/planet",
-                     img: "https://w.wallhaven.cc/full/eo/wallhaven-eo3m7k.jpg",
-                     alt: "my planet",
-                     title: "my planet",
-                     content: "this is some kind of textthis is some kind of textthis is some kind of textthis is some kind of textthis is some kind of text",
-                    }) %>
-                    <%- include('partials/planetCard', { link: "/planet",
-                     img: "https://w.wallhaven.cc/full/eo/wallhaven-eo3m7k.jpg",
-                     alt: "my planet",
-                     title: "my planet",
-                     content: "this is some kind of textthis is some kind of textthis is some kind of textthis is some kind of textthis is some kind of text",
-                    }) %>
-                    <%- include('partials/planetCard', { link: "/planet",
-                     img: "https://w.wallhaven.cc/full/eo/wallhaven-eo3m7k.jpg",
-                     alt: "my planet",
-                     title: "my planet",
-                     content: "this is some kind of textthis is some kind of textthis is some kind of textthis is some kind of textthis is some kind of text",
-                    }) %>
-                    <%- include('partials/planetCard', { link: "/planet",
-                     img: "https://w.wallhaven.cc/full/eo/wallhaven-eo3m7k.jpg",
-                     alt: "my planet",
-                     title: "my planet",
-                     content: "this is some kind of textthis is some kind of textthis is some kind of textthis is some kind of textthis is some kind of text",
-                    }) %>
+                    <% planets.forEach(function(planet){ %>
+                        <%- include('partials/planetCard', { 
+                            link: planet.link,
+                            img: planet.img,
+                            alt: planet.altImg,
+                            title: planet.title,
+                            content: planet.content
+                        }); %>
+                    <% }); %>
                 </div>
             </div>
         </div>
