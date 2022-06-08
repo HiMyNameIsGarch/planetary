@@ -9,6 +9,7 @@ const port = 3000;
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use('/planet', express.static('public'));
 app.use(express.json());
 
 const db = new PlanetaryEntity();
@@ -22,7 +23,7 @@ app.get('/universe', async (_req, res) => {
     res.render('universe', { planets: planets });
 });
 
-app.get('/planet/:id', async function (req, res) {
+app.get('/planet/:id', async (req, res) => {
     const id = req.params.id;
     if (!isValidObjectId(id)) return res.sendStatus(404);
 
