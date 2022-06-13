@@ -9,31 +9,53 @@
             </div>
         </div>
         <div class="container p-3 p-md-3">
-            <div class="row row-cols-1 row-cols-md-2 g-4">
-                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
-                    title: "Color: " + planet.colorPicker } ) %>
-                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
-                    title: "Type: " + planet.planetType } ) %>
-                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
-                    title: "Material: " + planet.material } ) %>
-                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
-                    title: "Solar System: " + planet.solarSystem } ) %>
-                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
-                    title: "Can a human live there? " + planet.canSustainEarthLife } ) %>
-                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
-                    title: "Distance To Earth: " + planet.distanceToEarth + " Km" } ) %>
-                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
-                    title: "Mass: " + planet.mass + " Kg"} ) %>
-                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
-                    title: "Gravity: " + planet.gravity + " m/s^2"} ) %>
-                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
-                    title: "Acceleration: " + planet.acceleration + " Km/h"} ) %>
-                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
-                    title: "Density: " + planet.density + " Kg/m^3"} ) %>
-                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
-                    title: "Discovered On: " + planet.discoveredOn } ) %>
-                <%- include('partials/propCard', { sourceImg: "https://bgr.com/wp-content/uploads/2014/08/universe.jpg",
-                    title: "Discovered By: " + planet.discoveredBy } ) %>
+            <div class="row bottomBorder">
+                <div class="col-lg-6 contentsCenter">
+                    <h1>Color <span class="badge bg-secondary" style="background-color: <%= planet.colorPicker %> !important"><%= planet.colorPicker %></span></h1>
+                </div>
+                <%- include('partials/propertyCard', { title: "Type ",
+                 value: planet.planetType
+                }) %>
+            </div>
+            <div class="row bottomBorder">
+                <%- include('partials/propertyCard', { title: "Material ",
+                 value: planet.material
+                }) %>
+                <%- include('partials/propertyCard', { title: "Solar System ",
+                 value: planet.solarSystem
+                }) %>
+            </div>
+            <div class="row bottomBorder">
+                <%- include('partials/propertyCard', { title: "Can humans live there? ",
+                 value: planet.canSustainEarthLife
+                }) %>
+                <%- include('partials/propertyCard', { title: "Distance to Earth ",
+                 value: planet.distanceToEarth + " Km"
+                }) %>
+            </div>
+            <div class="row bottomBorder">
+                <%- include('partials/propertyCard', { title: "Mass ",
+                 value: planet.mass + " Kg"
+                }) %>
+                <%- include('partials/propertyCard', { title: "Gravity ",
+                 value: planet.gravity + " m/s^2"
+                }) %>
+            </div>
+            <div class="row bottomBorder">
+                <%- include('partials/propertyCard', { title: "Acceleration ",
+                 value: planet.acceleration + " Km/h"
+                }) %>
+                <%- include('partials/propertyCard', { title: "Density ",
+                 value: planet.density + "Kg/m^3"
+                }) %>
+            </div>
+            <div class="row bottomBorder">
+                <%- include('partials/propertyCard', { title: "Discovered On ",
+                 value: planet.discoveredOn
+                }) %>
+                <%- include('partials/propertyCard', { title: "Discovered By ",
+                 value: planet.discoveredBy
+                }) %>
             </div>
         </div>
     </main>

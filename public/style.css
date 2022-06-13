@@ -13,6 +13,21 @@
     background-size: cover;
 }
 
+.bottomBorder {
+    border-bottom: solid #1d3557;
+    margin-bottom: 2rem;
+}
+
+.bgSpan {
+    background-color: #1d3557;
+}
+
+.contentsCenter {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
 .iwantwhite {
     color: #ccc;
 }
